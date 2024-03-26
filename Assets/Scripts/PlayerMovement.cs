@@ -45,6 +45,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int boltDmg;
     [SerializeField] private LayerMask groundLayerMask;
 
+    // Player unlocks
+    public GameObject unlockAttack;
+    public GameObject unlockKnockback;
+    public GameObject unlockMovespeed;
+
+
 
     // Update is called once per frame
     void Update()
@@ -140,6 +146,39 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+
+    public void UnlockMovespeed()
+    {
+        if (!rageMovespeed)
+        {
+            rageMovespeed = true;
+            unlockMovespeed.SetActive(true);
+            speed = speed + 6f;
+            jumpingPower = jumpingPower + 7f;
+            Debug.Log("Showing knockback menu unlock");
+            Time.timeScale = 0f;
+        }
+    }
+    public void UnlockAbility()
+    {
+        if (!rageKnockback)
+        {
+            rageKnockback = true;
+            unlockKnockback.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }
+    public void UnlockAttack()
+    {
+        if (!rageAbility)
+        {
+            rageAbility = true;
+            swordHitbox.GetComponent<SwordHitbox>().upgradedAttack = true;
+            unlockAttack.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }
+
 
     private bool isGrounded()
     {
