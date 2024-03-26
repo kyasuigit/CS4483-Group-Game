@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
     public float enemyDamage;
     public float health;
     public float maxHealth;
+    [SerializeField] HealthBar healthBar;
 
     public void TakeDamage(Transform takenFrom, float damageAmount)
     {
@@ -14,6 +15,7 @@ public class EnemyHealth : MonoBehaviour
         health -= damageAmount;
         StartCoroutine(FlashRed());
         gameObject.GetComponent<Hellhound>().Knockback(takenFrom);
+        healthBar.updateHealthBar(health, maxHealth);
 
         if (health <= 0)
         {
