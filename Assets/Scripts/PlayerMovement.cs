@@ -18,11 +18,13 @@ public class PlayerMovement : MonoBehaviour
     private bool isDashing;
     private float dashingTime = 0.2f;
     private float dashingCD = 1f;
+    public PlayerHealth playerStats;
 
     private bool canBolt = true;
     private bool isBolting;
     private float boltTime = 0.55f;
     private float boltCD = 1f;
+    private float rageAmount;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -197,40 +199,47 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator Dash()
     {
-        canDash = false;
-        isDashing = true;
-        float originalGravity = rb.gravityScale;
-        rb.gravityScale = 0f;
-        rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
-        trailRenderer.emitting = true;
-        yield return new WaitForSeconds(dashingTime);
-        trailRenderer.emitting = false;
-        rb.gravityScale = originalGravity;
-        isDashing = false;
-        yield return new WaitForSeconds(dashingCD);
-        canDash = true;
+        if (playerStats.getRage() > 0)
+        {
+            playerStats.updateRage(playerStats.getRage() - 1);
+            canDash = false;
+            isDashing = true;
+            float originalGravity = rb.gravityScale;
+            rb.gravityScale = 0f;
+            rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
+            //trailRenderer.emitting = true;
+            yield return new WaitForSeconds(dashingTime);
+            //trailRenderer.emitting = false;
+            rb.gravityScale = originalGravity;
+            isDashing = false;
+            yield return new WaitForSeconds(dashingCD);
+            canDash = true;
+        }
     }
 
     private IEnumerator SpawnBolt()
     {
 
+        if (playerStats.getRage() > 0)
+        {
+            playerStats.updateRage(playerStats.getRage() - 2);
+            canBolt = false;
+            isBolting = true;
+            GameObject bolt;
         
-        canBolt = false;
-        isBolting = true;
-        GameObject bolt;
-        
-        Vector3 direction = transform.forward;
-        Vector3 spawnPosition = transform.position + (isFacingRight ? transform.right * 5 : -transform.right * 5);
+            Vector3 direction = transform.forward;
+            Vector3 spawnPosition = transform.position + (isFacingRight ? transform.right * 5 : -transform.right * 5);
 
-        bolt = Instantiate(boltPrefab, spawnPosition, Quaternion.identity);
-        bolt.transform.forward = direction;
-        yield return new WaitForSeconds(boltTime);
-        Destroy(bolt);
+            bolt = Instantiate(boltPrefab, spawnPosition, Quaternion.identity);
+            bolt.transform.forward = direction;
+            yield return new WaitForSeconds(boltTime);
+            Destroy(bolt);
        
-        isBolting = false;
-        yield return new WaitForSeconds(boltCD);
-        canBolt = true;
+            isBolting = false;
+            yield return new WaitForSeconds(boltCD);
+            canBolt = true;
         
+        }
 
     }
 

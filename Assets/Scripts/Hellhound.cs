@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Hellhound : MonoBehaviour
 {
@@ -23,7 +22,6 @@ public class Hellhound : MonoBehaviour
 
     public float knockbackTotalTime;
     private bool knockFromLeft;
-    [SerializeField] Slider angerBarSlider;
 
     void Start()
     {
@@ -39,7 +37,6 @@ public class Hellhound : MonoBehaviour
 
             if (knockbackTimer <= 0)
             {
-                angerBarSlider.value += 2;
 
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(playerTransform.position.x, transform.position.y, transform.position.z), Time.deltaTime * speed);
 
