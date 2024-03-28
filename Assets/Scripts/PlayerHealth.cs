@@ -49,7 +49,6 @@ public class PlayerHealth : MonoBehaviour
     {
         if (invincibilityTimer <= 0 && LayerMask.LayerToName(collision.gameObject.layer) == "Enemy")
         {
-            updateRage(rageSlider.value + 2);
             TakeDamage(collision.gameObject.GetComponent<EnemyHealth>().getEnemyDamage());
         }
     }

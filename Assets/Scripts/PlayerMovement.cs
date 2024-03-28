@@ -40,21 +40,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject attack2Collider;
     [SerializeField] private AudioSource attack2Audio;
 
-    [SerializeField] private TrailRenderer trailRenderer;
+    [SerializeField] private GameObject trailRenderer;
     [SerializeField] private float dashingPower = 10f;
 
     public GameObject boltPrefab;
     [SerializeField] private int boltDmg;
     [SerializeField] private LayerMask groundLayerMask;
 
-
-    // Player unlocks
-    public GameObject unlockAttack;
-    public GameObject unlockKnockback;
-    public GameObject unlockMovespeed;
     private bool rageSpeedBoost = false;
-    private bool rageKnockback = false;
-
+    private Coroutine rageDrainCoroutine;
+    private float rageDrainRate = 1f;
     // Update is called once per frame
     void Update()
     {
@@ -133,6 +128,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 StartCoroutine(SpawnBolt());
             }
+            if (Input.GetKeyDown(KeyCode.R) && playerStats.getRage() > 0 && !rageSpeedBoost)
+            {
+                UnlockMovespeed();
+            }
             Flip();
         }
         else
@@ -152,23 +151,51 @@ public class PlayerMovement : MonoBehaviour
 
     public void UnlockMovespeed()
     {
-        if (!rageSpeedBoost)
+        rageSpeedBoost = true;
+        speed += 6f;
+        jumpingPower += 6f;
+        StartRageDrain();
+        trailRenderer.SetActive(true);
+        playerStats.updateRage(playerStats.getRage() - 1); // Drain 1 rage when speed boost is activated
+    }
+
+    // Method to start draining rage continuously
+    private void StartRageDrain()
+    {
+        if (rageDrainCoroutine == null)
         {
-            rageSpeedBoost = true;
-            unlockMovespeed.SetActive(true);
-            speed = speed + 6f;
-            jumpingPower = jumpingPower + 7f;
-            Debug.Log("Showing knockback menu unlock");
-            Time.timeScale = 0f;
+            rageDrainCoroutine = StartCoroutine(RageDrainCoroutine());
         }
     }
-    public void UnlockAbility()
+
+    // Method to stop draining rage
+    private void StopRageDrain()
     {
-        if (!rageKnockback)
+        if (rageDrainCoroutine != null)
         {
-            rageKnockback = true;
-            unlockKnockback.SetActive(true);
-            Time.timeScale = 0f;
+            StopCoroutine(rageDrainCoroutine);
+            rageDrainCoroutine = null;
+        }
+    }
+
+    // Coroutine to continuously drain rage
+    private IEnumerator RageDrainCoroutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+            if (playerStats.getRage() > 0)
+            {
+                playerStats.updateRage(playerStats.getRage() - 1);
+            }
+            else
+            {
+                StopRageDrain();
+                trailRenderer.SetActive(false);
+                rageSpeedBoost = false;
+                jumpingPower = 16f;
+                speed = 8f;
+            }
         }
     }
 
