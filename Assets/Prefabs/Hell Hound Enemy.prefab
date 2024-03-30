@@ -319,6 +319,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
   flip: 0
+  audioSource: {fileID: 1539041101004812177}
+  deathAudio: {fileID: 0}
   health: {fileID: 0}
   knockbackTimer: 0
   knockbackPower: 10

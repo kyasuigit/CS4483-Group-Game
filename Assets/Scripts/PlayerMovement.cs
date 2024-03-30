@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Animator animator;
-    [SerializeField] private float jumpingPower = 16f;
+    [SerializeField] private float jumpingPower = 20f;
 
     [SerializeField] private float attack1Time;
     [SerializeField] private GameObject attack1Collider;
@@ -85,14 +85,29 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
             }
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && attack2Timer <= 0)
             {
                 animator.SetTrigger("attack1");
                 attack1Collider.SetActive(true);
-                attack1Timer = attack1Time;
-                attack1Audio.Play();
+                if (attack1Timer <= 0)
+                {
+                    attack1Audio.Play();
+                    attack1Timer = attack1Time;
+                }
 
             }
+            else if (Input.GetMouseButtonDown(1) && attack1Timer <= 0)
+            {
+                animator.SetTrigger("attack2");
+                attack2Collider.SetActive(true);
+                if (attack2Timer <= 0)
+                {
+                    attack2Audio.Play();
+                    attack2Timer = attack2Time;
+
+                }
+            }
+
             if (attack1Timer >= 0)
             {
                 attack1Timer -= Time.deltaTime;
@@ -102,13 +117,7 @@ public class PlayerMovement : MonoBehaviour
                 attack1Collider.SetActive(false);
             }
 
-            if (Input.GetMouseButtonDown(1))
-            {
-                animator.SetTrigger("attack2");
-                attack2Collider.SetActive(true);
-                attack2Timer = attack2Time;
-                attack2Audio.Play();
-            }
+            
 
             if (attack2Timer >= 0)
             {
@@ -193,7 +202,7 @@ public class PlayerMovement : MonoBehaviour
                 StopRageDrain();
                 trailRenderer.SetActive(false);
                 rageSpeedBoost = false;
-                jumpingPower = 16f;
+                jumpingPower = 20f;
                 speed = 8f;
             }
         }

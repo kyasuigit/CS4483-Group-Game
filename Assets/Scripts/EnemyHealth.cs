@@ -31,6 +31,8 @@ public class EnemyHealth : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
+   
+
     public float getEnemyDamage()
     {
         return enemyDamage;

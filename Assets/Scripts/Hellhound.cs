@@ -13,6 +13,8 @@ public class Hellhound : MonoBehaviour
     private Rigidbody2D rb;
 
     private float deathTimer = 0f;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip deathAudio;
     [SerializeField] private GameObject health;
 
     public float knockbackTimer;
@@ -94,6 +96,8 @@ public class Hellhound : MonoBehaviour
     }
     public void Die()
     {
+        audioSource.clip = deathAudio;
+        audioSource.Play();
         animator.SetBool("killed", true);
         deathTimer = 0.3f;
         dead = true;
