@@ -41,6 +41,11 @@ public class EyeDemonProjectile : MonoBehaviour
             Destroy(gameObject);
 
         }
+        else if (LayerMask.LayerToName(collision.gameObject.layer) == "Sword")
+        {
+            Destroy(gameObject);
+        }
+
 
     }
 }
