@@ -25,6 +25,10 @@ public class EnemyHealth : MonoBehaviour
                 gameObject.GetComponent<Hellhound>().Die();
             else if (gameObject.GetComponent<Ogre>())
                 gameObject.GetComponent<Ogre>().Die();
+            else if (gameObject.GetComponent<EyeDemon>())
+            {
+                gameObject.GetComponent<EyeDemon>().Die();
+            }
         }
     }
 

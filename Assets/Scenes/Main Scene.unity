@@ -276,8 +276,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5a8376bc3cf44d346943641ac4014cbd, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.668
+  m_PlayOnAwake: 0
+  m_Volume: 0.693
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -286,7 +286,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 100
+  MaxDistance: 50
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -321,7 +321,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -379,6 +379,7 @@ MonoBehaviour:
   pointA: {fileID: 826567151}
   pointB: {fileID: 367335407}
   attackTime: 2.5
+  audio: {fileID: 157603207}
   attackHitBox: {fileID: 470484329}
 --- !u!50 &157603209
 Rigidbody2D:
@@ -33457,7 +33458,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779069824}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3d60f26a462aba428a9d80fd253b51e, type: 3}
   m_Name: 
@@ -34305,7 +34306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5589002825165430336, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5589002825165430336, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
       propertyPath: attack1Time

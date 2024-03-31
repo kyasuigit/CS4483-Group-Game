@@ -17,7 +17,7 @@ public class Ogre : MonoBehaviour
     public Transform pointA;
     public Transform pointB;
     public float attackTime;
-
+    public AudioSource audio;
 
     private float attackTimer = 0;
     private bool movingToA = true;
@@ -30,6 +30,11 @@ public class Ogre : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    public void PlayAudio()
+    {
+        audio.Play();
+
+    }
     public void EnableHitBox()
     {
         attackHitBox.SetActive(true);
@@ -59,6 +64,14 @@ public class Ogre : MonoBehaviour
                 animator.SetTrigger("attacking");
             }
             attackTimer -= Time.deltaTime;
+        }
+        else if (dead)
+        {
+            deathTimer -= Time.deltaTime;
+            if (deathTimer < 0f)
+            {
+                Destroy(gameObject);
+            }
         }
         else if (attackTimer > 0)
         {
