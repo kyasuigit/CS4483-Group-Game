@@ -47,12 +47,16 @@ public class Player2Script: MonoBehaviour
     public GameObject rightShield;
     public LayerMask enemyLayer;
 
+    private void Start()
+    {
+        StartCoroutine(RegenerateHealth());
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (!dead)
         {
-            
             horizontal = Input.GetAxisRaw("Horizontal");
 
             if (horizontal != 0)
@@ -222,6 +226,19 @@ public class Player2Script: MonoBehaviour
             Vector3 localScale = transform.localScale;
             localScale.x = localScale.x * -1;
             transform.localScale = localScale;
+        }
+    }
+
+    private IEnumerator RegenerateHealth()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(5f); // Wait for 5 seconds before regen
+
+            if (playerStats.getHealth() < playerStats.maxHealth)
+            {
+                playerStats.changeHealth(playerStats.getHealth() + 1); // Increment health by 1
+            }
         }
     }
 

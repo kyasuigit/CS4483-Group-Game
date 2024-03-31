@@ -71,9 +71,11 @@ public class PlayerHealth : MonoBehaviour
     {
         if (reduceDamage){
             reduceDamage = false;
+            FlashGold();
         }
         else
         {
+            FlashGold();
             reduceDamage = true;
         }
     }
@@ -103,9 +105,27 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         GetComponent<SpriteRenderer>().color = Color.white;
     }
+
+    private void FlashGold()
+    {
+        if (GetComponent<SpriteRenderer>().color == Color.yellow)
+        {
+            GetComponent<SpriteRenderer>().color = Color.white;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().color = Color.yellow;
+        }
+    }
+
     public float getHealth()
     {
         return health;
+    }
+
+    public void changeHealth(float newHealth)
+    {
+        health = newHealth;
     }
 
     public float getRage()
