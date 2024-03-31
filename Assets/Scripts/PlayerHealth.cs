@@ -15,6 +15,7 @@ public class PlayerHealth : MonoBehaviour
     private float targetValue = 0f;
     private float startValue;
     private float startTime;
+    private bool reduceDamage = false;
 
     private void Start()
     {
@@ -45,6 +46,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (invincibilityTimer <= 0 && LayerMask.LayerToName(collision.gameObject.layer) == "Enemy")
@@ -59,9 +61,33 @@ public class PlayerHealth : MonoBehaviour
         startTime = Time.time;
         startValue = rageSlider.value;
     }
+
+    public bool getDamageReduction()
+    {
+        return reduceDamage;
+    }
+
+    public void toggleDamageReduction()
+    {
+        if (reduceDamage){
+            reduceDamage = false;
+        }
+        else
+        {
+            reduceDamage = true;
+        }
+    }
+
     public void TakeDamage(float damageAmount)
     {
-        health -= damageAmount;
+        if (reduceDamage)
+        {
+            health -= damageAmount / 2;
+        }
+        else
+        {
+            health -= damageAmount;
+        }
         invincibilityTimer = invincibilityTime;
         StartCoroutine(FlashRed());
 
