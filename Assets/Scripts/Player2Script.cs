@@ -43,6 +43,10 @@ public class Player2Script: MonoBehaviour
 
     private Coroutine rageDrainCoroutine;
     private float rageDrainRate = 1f;
+    public GameObject leftShield;
+    public GameObject rightShield;
+    public LayerMask enemyLayer;
+
     // Update is called once per frame
     void Update()
     {
@@ -118,6 +122,10 @@ public class Player2Script: MonoBehaviour
             {
                 toggleDamageReduction();
             }
+            else if (Input.GetKeyDown(KeyCode.LeftShift) && playerStats.getRage() > 0)
+            {
+                summonShields();
+            }
             Flip();
         }
         else
@@ -147,6 +155,16 @@ public class Player2Script: MonoBehaviour
             playerStats.toggleDamageReduction();
             StartRageDrain();
         }
+    }
+
+    private void summonShields()
+    {
+        if (leftShield.activeSelf && rightShield.activeSelf)
+        {
+
+        }
+        leftShield.SetActive(true);
+        rightShield.SetActive(true);
     }
 
     private void StartRageDrain()
