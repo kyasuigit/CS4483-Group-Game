@@ -14,12 +14,17 @@ public class EnemyHealth : MonoBehaviour
 
         health -= damageAmount;
         StartCoroutine(FlashRed());
-        gameObject.GetComponent<Hellhound>().Knockback(takenFrom);
+        if (gameObject.GetComponent<Hellhound>())
+            gameObject.GetComponent<Hellhound>().Knockback(takenFrom);
+        
         healthBar.updateHealthBar(health, maxHealth);
 
         if (health <= 0)
         {
-            gameObject.GetComponent<Hellhound>().Die();
+            if (gameObject.GetComponent<Hellhound>())
+                gameObject.GetComponent<Hellhound>().Die();
+            else if (gameObject.GetComponent<Ogre>())
+                gameObject.GetComponent<Ogre>().Die();
         }
     }
 
