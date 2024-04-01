@@ -164,7 +164,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void UnlockMovespeed()
     {
-        if (playerStats.getRage() > 0 && !rageSpeedBoost) {
+        if (playerStats.getRage() > 0 && !rageSpeedBoost && boostUnlocked) {
             rageSpeedBoost = true;
             speed += 6f;
             jumpingPower += 6f;

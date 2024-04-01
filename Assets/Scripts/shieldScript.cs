@@ -1,35 +1,46 @@
 using UnityEngine;
 
-public class shieldScript : MonoBehaviour
+public class MoveAwayFromPlayer : MonoBehaviour
 {
-    public Transform playerTransform;
-    public float moveSpeed = 5f;
-    public float moveDistance = 5f;
-    public GameObject shield;
-
-    private Vector3 initialOffset; // Initial offset from the player
+    public Transform playerTransform;  // The object to move away from
+    public float moveSpeed = 5f;    // Speed at which the object moves
+    public float maxDistance = 10f;
+    private Vector3 initialPosition;
 
     private void Start()
     {
-        // Calculate the initial offset from the player
-        initialOffset = transform.position - playerTransform.position;
+        initialPosition = transform.position;
     }
-
     private void Update()
     {
-        // Calculate the target position based on the player's position and the initial offset
-        Vector3 targetPosition = playerTransform.position + initialOffset;
+        // Calculate the direction from this object to the player
+        Vector3 directionToPlayer = playerTransform.position - transform.position;
+
+        // Calculate the distance between this object and the player
+        float distanceToPlayer = directionToPlayer.x;
+
+        // Calculate the target position to move away from the player
+        Vector3 targetPosition = transform.position;
+
+        // Move to the left of the player if the object is to the right
+        if (distanceToPlayer > 0)
+        {
+            targetPosition.x -= Mathf.Abs(distanceToPlayer) + 1f; // Adding 1 unit extra for safety
+        }
+        // Move to the right of the player if the object is to the left
+        else
+        {
+            targetPosition.x += Mathf.Abs(distanceToPlayer) + 1f; // Adding 1 unit extra for safety
+        }
 
         // Move towards the target position
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
-        // Check if the shield has moved far enough away from the player
-        if (Vector3.Distance(transform.position, playerTransform.position) >= moveDistance)
+        // Check if the distance from the initial position exceeds the max distance
+        if (Vector3.Distance(transform.position, initialPosition) > maxDistance)
         {
-            // Reset the shield's position relative to the player
-            shield.SetActive(false);
-            transform.position = playerTransform.position + initialOffset;
-            shield.SetActive(true);
+            gameObject.SetActive(false); // Set the object to inactive
+            transform.position = initialPosition; // Reset position to the initial position
         }
     }
 }

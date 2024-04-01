@@ -46,6 +46,9 @@ public class Player2Script: MonoBehaviour
     public GameObject shield;
     public LayerMask enemyLayer;
 
+    public GameObject shield1;
+    public GameObject shield2;
+
     private void Start()
     {
         StartCoroutine(RegenerateHealth());
