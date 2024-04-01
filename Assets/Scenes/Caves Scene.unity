@@ -408,6 +408,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Eye Demon (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3421903038580878599, guid: a40693f4a6379ca4e99d5ed654ef7407, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 670669965}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -682,6 +686,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Eye Demon (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3421903038580878599, guid: a40693f4a6379ca4e99d5ed654ef7407, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1779069829}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -841,6 +849,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Eye Demon (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3421903038580878599, guid: a40693f4a6379ca4e99d5ed654ef7407, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1779069829}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1078,6 +1090,11 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!4 &670669965 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1465969578491386690, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
+  m_PrefabInstance: {fileID: 7043624481210743611}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &699755961
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1138,6 +1155,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Eye Demon
       objectReference: {fileID: 0}
+    - target: {fileID: 3421903038580878599, guid: a40693f4a6379ca4e99d5ed654ef7407, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1779069829}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -48148,6 +48169,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Eye Demon (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3421903038580878599, guid: a40693f4a6379ca4e99d5ed654ef7407, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1779069829}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -48530,6 +48555,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3980713709687510196, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4376856830084519212, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -48562,6 +48591,10 @@ PrefabInstance:
       propertyPath: trailRenderer
       value: 
       objectReference: {fileID: 923582119}
+    - target: {fileID: 5944620207595946706, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8290633650529693655, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
       propertyPath: m_Time
       value: 0.5
