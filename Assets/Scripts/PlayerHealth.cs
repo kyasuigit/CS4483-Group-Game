@@ -16,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
     private float startValue;
     private float startTime;
     private bool reduceDamage = false;
+    public GameObject defeatMenu;
 
     private void Start()
     {
@@ -96,6 +97,7 @@ public class PlayerHealth : MonoBehaviour
         if (health <= 0)
         {
             GetComponent<PlayerMovement>().PlayerDeath();
+            ShowDefeatMenu();
         }
     }
 
@@ -131,6 +133,12 @@ public class PlayerHealth : MonoBehaviour
     public float getRage()
     {
         return rageSlider.value;
+    }
+
+    void ShowDefeatMenu()
+    {
+        defeatMenu.SetActive(true);
+        Time.timeScale = 0f;
     }
 
 }
