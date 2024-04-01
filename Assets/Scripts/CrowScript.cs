@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EyeDemon : MonoBehaviour
+public class CrowScript : MonoBehaviour
 {
     public Transform playerTransform;
 
@@ -21,8 +21,13 @@ public class EyeDemon : MonoBehaviour
     private bool facingLeft = true;
 
     private float attackTimer = 0f;
-    public GameObject fireballPrefab;
-    public float fireballSpeed;
+    public GameObject birdPrefab;
+    public float birdSpeed;
+
+    private GameObject crow1;
+    private GameObject crow2;
+    private GameObject crow3;
+    private GameObject crow4;
 
     void Start()
     {
@@ -37,25 +42,18 @@ public class EyeDemon : MonoBehaviour
     void Update()
     {
 
-        if (Vector2.Distance(playerTransform.transform.position, transform.position) < 12f && !dead)
+        if (Vector2.Distance(playerTransform.transform.position, transform.position) < 9f && !dead)
         {
-            if (Vector2.Distance(playerTransform.transform.position, transform.position) > 7f) { 
-                transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
+            if (attackTimer <= 0)
+            {
+                attackTimer = attackTime;
+                SpawnCrows();
             }
             else
             {
-                if  (attackTimer <= 0)
-                {
-                    attackTimer = attackTime;
-                    ShootFireball();
-                }
-                else
-                {
-                    attackTimer -= Time.deltaTime;
-                }
+                attackTimer -= Time.deltaTime;
             }
-
-
+   
             if (playerTransform.position.x > transform.position.x && facingLeft)
             {
                 Vector3 newScale = transform.localScale;
@@ -80,22 +78,24 @@ public class EyeDemon : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-       
+
     }
 
-    public void ShootFireball()
+    public void SpawnCrows()
     {
 
-        GameObject fireBall = Instantiate(fireballPrefab, transform.position, Quaternion.identity);
-        Vector3 direction = (playerTransform.position - transform.position).normalized;
-        fireBall.GetComponent<Rigidbody2D>().velocity = direction * fireballSpeed;
+        crow1 = Instantiate(birdPrefab, transform.position + new Vector3(0, 3, 0), Quaternion.identity) ;
+        crow2 = Instantiate(birdPrefab, transform.position + new Vector3(0, -3, 0), Quaternion.identity);
+        crow3= Instantiate(birdPrefab, transform.position + new Vector3(3, 0, 0), Quaternion.identity);
+        crow4 = Instantiate(birdPrefab, transform.position + new Vector3(-3, 0, 0), Quaternion.identity);
+
     }
 
     public void Die()
     {
 
         animator.SetBool("killed", true);
-        deathTimer = 0.25f;
+        deathTimer = 0.3f;
         dead = true;
     }
 }

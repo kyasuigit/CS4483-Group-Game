@@ -29,6 +29,10 @@ public class EnemyHealth : MonoBehaviour
             {
                 gameObject.GetComponent<EyeDemon>().Die();
             }
+            else if (gameObject.GetComponent<CrowScript>())
+            {
+                gameObject.GetComponent<CrowScript>().Die();
+            }
         }
     }
 
