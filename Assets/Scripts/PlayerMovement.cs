@@ -26,6 +26,10 @@ public class PlayerMovement : MonoBehaviour
     private float boltCD = 1f;
     private float rageAmount;
 
+    private bool boltUnlocked = false;
+    private bool boostUnlocked = false;
+    private bool dashUnlocked = false;
+
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
@@ -137,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 StartCoroutine(SpawnBolt());
             }
-            if (Input.GetKeyDown(KeyCode.R) && playerStats.getRage() > 0 && !rageSpeedBoost)
+            if (Input.GetKeyDown(KeyCode.R))
             {
                 UnlockMovespeed();
             }
@@ -160,12 +164,21 @@ public class PlayerMovement : MonoBehaviour
 
     public void UnlockMovespeed()
     {
-        rageSpeedBoost = true;
-        speed += 6f;
-        jumpingPower += 6f;
-        StartRageDrain();
-        trailRenderer.SetActive(true);
-        playerStats.updateRage(playerStats.getRage() - 1); // Drain 1 rage when speed boost is activated
+        if (playerStats.getRage() > 0 && !rageSpeedBoost) {
+            rageSpeedBoost = true;
+            speed += 6f;
+            jumpingPower += 6f;
+            StartRageDrain();
+            trailRenderer.SetActive(true);
+        }
+        else
+        {
+            trailRenderer.SetActive(false);
+            StopRageDrain();
+            rageSpeedBoost = false;
+            speed = 8f;
+            jumpingPower = 20f;
+        }
     }
 
     // Method to start draining rage continuously
@@ -235,7 +248,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator Dash()
     {
-        if (playerStats.getRage() > 0)
+        if (playerStats.getRage() > 0 && dashUnlocked)
         {
             playerStats.updateRage(playerStats.getRage() - 1);
             canDash = false;
@@ -256,7 +269,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator SpawnBolt()
     {
 
-        if (playerStats.getRage() > 0)
+        if (playerStats.getRage() > 0 && boltUnlocked)
         {
             playerStats.updateRage(playerStats.getRage() - 2);
             canBolt = false;
@@ -286,6 +299,21 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("isDead", true);
         dead = true;
         deathTimer = 1.5f;
+    }
+
+    public void unlockMoveSpeed()
+    {
+        boostUnlocked = true;
+    }
+
+    public void unlockDash()
+    {
+        dashUnlocked = true;
+    }
+
+     public void unlockBolt()
+    {
+        boltUnlocked = true;
     }
 
     public bool facingRight()

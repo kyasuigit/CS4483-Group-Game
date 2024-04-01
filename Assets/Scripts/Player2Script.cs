@@ -43,8 +43,7 @@ public class Player2Script: MonoBehaviour
 
     private Coroutine rageDrainCoroutine;
     private float rageDrainRate = 1f;
-    public GameObject leftShield;
-    public GameObject rightShield;
+    public GameObject shield;
     public LayerMask enemyLayer;
 
     private void Start()
@@ -58,7 +57,10 @@ public class Player2Script: MonoBehaviour
         if (!dead)
         {
             horizontal = Input.GetAxisRaw("Horizontal");
-
+            if (playerStats.getRage() <= 0)
+            {
+                toggleDamageReduction();
+            }
             if (horizontal != 0)
             {
                 animator.SetBool("isWalking", true);
@@ -122,7 +124,7 @@ public class Player2Script: MonoBehaviour
             {
                 attack2Collider.SetActive(false);
             }
-            else if (Input.GetKeyDown(KeyCode.R) && playerStats.getRage() > 0 && playerStats.getDamageReduction() == false)
+            else if (Input.GetKeyDown(KeyCode.R))
             {
                 toggleDamageReduction();
             }
@@ -152,10 +154,13 @@ public class Player2Script: MonoBehaviour
     {
         if (playerStats.getDamageReduction() == true)
         {
+            shield.SetActive(false);
             playerStats.toggleDamageReduction();
+            StopRageDrain();
         }
-        else
+        else if (playerStats.getRage() > 0)
         {
+            shield.SetActive(true);
             playerStats.toggleDamageReduction();
             StartRageDrain();
         }
@@ -163,12 +168,7 @@ public class Player2Script: MonoBehaviour
 
     private void summonShields()
     {
-        if (leftShield.activeSelf && rightShield.activeSelf)
-        {
-
-        }
-        leftShield.SetActive(true);
-        rightShield.SetActive(true);
+       
     }
 
     private void StartRageDrain()
