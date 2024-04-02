@@ -83,6 +83,7 @@ public class CrowScript : MonoBehaviour
 
     public void SpawnCrows()
     {
+        PlayAudio();
 
         Instantiate(birdPrefab, transform.position + new Vector3(0, 3, 0), Quaternion.identity) ;
         Instantiate(birdPrefab, transform.position + new Vector3(0, -3, 0), Quaternion.identity);

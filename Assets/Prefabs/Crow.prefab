@@ -528,7 +528,7 @@ MonoBehaviour:
   flip: 0
   speed: 3
   attackTime: 6
-  audio: {fileID: 8821207195262154063}
+  audioSource: {fileID: 0}
   birdPrefab: {fileID: 4248656229737949804, guid: 5120e032a283ee0449d4e2fe373224f3, type: 3}
   birdSpeed: 6
 --- !u!95 &5253865927037670037
@@ -625,8 +625,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7190bf17cf6cc5f48a7be8dbfc46f6fd, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.778
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -670,7 +670,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
