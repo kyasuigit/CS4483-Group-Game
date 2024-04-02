@@ -216,6 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba8378b640301c94cb5b0f81011b157d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 0}
   rb: {fileID: 73281384720724433}
   groundCheck: {fileID: 1465969578491386690}
   groundLayer:
@@ -236,9 +237,6 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  unlockAttack: {fileID: 0}
-  unlockKnockback: {fileID: 0}
-  unlockMovespeed: {fileID: 0}
 --- !u!70 &670040679165783411
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -424,6 +422,8 @@ MonoBehaviour:
   invincibilityTime: 2
   rageSlider: {fileID: 0}
   animationDuration: 1
+  defeatMenu: {fileID: 0}
+  isGuardian: 0
 --- !u!1 &3980713709687510196
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,6 +623,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 6
+  playerStats: {fileID: 0}
+  isGuardian: 0
 --- !u!1 &5549099784772025722
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,6 +961,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 4
+  playerStats: {fileID: 0}
+  isGuardian: 0
 --- !u!1 &9134632943484155470
 GameObject:
   m_ObjectHideFlags: 0
