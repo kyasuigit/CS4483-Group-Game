@@ -31,22 +31,29 @@ public class CameraFollow : MonoBehaviour
     private void Start()
     {
         mainCamera = Camera.main;
-        if (guardian.activeSelf)
+
+        if (PlayerChoice.CharacterChoice == "Guardian")
         {
+            guardian.SetActive(true);
             followGuardian = true;
         }
+        else
+        {
+            assassin.SetActive(true);
+        }
+
     }
     void Update()
     {
         if (!isBoss) {
             if (!followGuardian)
             {
-                offset = assassin.GetComponent<PlayerMovement>().facingRight() ? new Vector3(1.5f, 0f, -10f) : new Vector3(-1.5f, 0f, -10f);
+                offset = assassin.GetComponent<PlayerMovement>().facingRight() ? new Vector3(1.5f, 2.5f, -5f) : new Vector3(-1.5f, 2.5f, -5f);
                 changeTarget(assassin.transform);
             }
             else
             {
-                offset = guardian.GetComponent<Player2Script>().facingRight() ? new Vector3(1.5f, 0f, -10f) : new Vector3(-1.5f, 0f, -10f);
+                offset = guardian.GetComponent<Player2Script>().facingRight() ? new Vector3(1.5f, 0.5f, -5f) : new Vector3(-1.5f, 0.5f, -5f);
                 changeTarget(guardian.transform);
             }
             Vector3 targetPosition = target.position + offset;

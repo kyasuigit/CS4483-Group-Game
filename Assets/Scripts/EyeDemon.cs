@@ -28,7 +28,7 @@ public class EyeDemon : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        if (assassin.activeSelf)
+        if (PlayerChoice.CharacterChoice == "Assassin")
         {
             playerTransform = assassin.transform;
         }

@@ -12,7 +12,7 @@ public class HealthUI : MonoBehaviour
 
     void Start()
     {
-        if (assassinPlayer.activeSelf)
+        if (PlayerChoice.CharacterChoice == "Assassin")
         {
             currentPlayer = assassinPlayer;
         }

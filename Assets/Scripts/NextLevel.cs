@@ -7,7 +7,7 @@ public class NextLevel : MonoBehaviour
 {
     public string nextSceneName;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {

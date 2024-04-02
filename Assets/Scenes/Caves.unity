@@ -1214,8 +1214,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3000
-  m_fontSizeBase: 3000
+  m_fontSize: 2600
+  m_fontSizeBase: 2600
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2270,26 +2270,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &427541920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 427541914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85d431bcd2f310b42870dedc75c3200e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTransform: {fileID: 2126491934}
-  assassin: {fileID: 708735387}
-  flip: 0
-  speed: 3
-  attackTime: 6
-  audioSource: {fileID: 0}
-  birdPrefab: {fileID: 4248656229737949804, guid: 5120e032a283ee0449d4e2fe373224f3, type: 3}
-  birdSpeed: 6
 --- !u!82 &427541921 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8821207195262154063, guid: 2ee2fecded936864d969dc798112b9f7, type: 3}
@@ -2822,13 +2802,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6615720698720297753, guid: 2ee2fecded936864d969dc798112b9f7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 696133582}
-    - targetCorrespondingSourceObject: {fileID: 6615720698720297753, guid: 2ee2fecded936864d969dc798112b9f7, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 696133581}
-    - targetCorrespondingSourceObject: {fileID: 6615720698720297753, guid: 2ee2fecded936864d969dc798112b9f7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 696133580}
     - targetCorrespondingSourceObject: {fileID: 6615720698720297753, guid: 2ee2fecded936864d969dc798112b9f7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 696133579}
@@ -2988,33 +2962,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0043146783, y: -0.016179943}
   m_Size: {x: 0.2556372, y: 0.3268299}
   m_Direction: 0
---- !u!50 &696133580
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 696133577}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 300
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!95 &696133581
 Animator:
   serializedVersion: 5
@@ -3036,26 +2983,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &696133582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 696133577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85d431bcd2f310b42870dedc75c3200e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTransform: {fileID: 2126491934}
-  assassin: {fileID: 708735387}
-  flip: 0
-  speed: 3
-  attackTime: 6
-  audioSource: {fileID: 0}
-  birdPrefab: {fileID: 4248656229737949804, guid: 5120e032a283ee0449d4e2fe373224f3, type: 3}
-  birdSpeed: 6
 --- !u!82 &696133586 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8821207195262154063, guid: 2ee2fecded936864d969dc798112b9f7, type: 3}
@@ -3188,11 +3115,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2987612540863528117, guid: fc6080a0ae27ad840b361612395c936b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2987612540863528117, guid: fc6080a0ae27ad840b361612395c936b, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999978783261602568, guid: fc6080a0ae27ad840b361612395c936b, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6527824842450938197, guid: fc6080a0ae27ad840b361612395c936b, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7461876600464339549, guid: fc6080a0ae27ad840b361612395c936b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3527,9 +3462,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6615720698720297753, guid: 2ee2fecded936864d969dc798112b9f7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 427541920}
     - targetCorrespondingSourceObject: {fileID: 6615720698720297753, guid: 2ee2fecded936864d969dc798112b9f7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 427541919}
@@ -4709,8 +4641,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -12.8077, y: -78}
-  m_SizeDelta: {x: 71392.09, y: 1017.1001}
+  m_AnchoredPosition: {x: 0, y: -42.4}
+  m_SizeDelta: {x: 54629.86, y: 778.2939}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1070958796
 MonoBehaviour:
@@ -51234,8 +51166,8 @@ MonoBehaviour:
   startTime: 3
   attack1Time: 2.5
   attack1Speed: 6
-  audioSource: {fileID: 0}
-  deathSound: {fileID: 0}
+  audioSource: {fileID: 1657002979}
+  deathSound: {fileID: 8300000, guid: 2da5cd86917c3814e830e86c4c139eab, type: 3}
   spawnPoints:
   - {fileID: 83453267}
   - {fileID: 25737202}
@@ -51244,10 +51176,10 @@ MonoBehaviour:
   - {fileID: 1741207809}
   pointA: {fileID: 199817130}
   pointB: {fileID: 1894373336}
-  phase2Point: {fileID: 0}
+  phase2Point: {fileID: 1032997287}
   attack1: {fileID: 995578918}
-  attack2: {fileID: 0}
-  attack3: {fileID: 0}
+  attack2: {fileID: 379615653}
+  attack3: {fileID: 956844045}
 --- !u!70 &1657002977
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -51280,8 +51212,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.001742798, y: 0.19982402}
-  m_Size: {x: 0.2738007, y: 0.44829145}
+  m_Offset: {x: 0.014141423, y: 0.24941449}
+  m_Size: {x: 0.33579138, y: 0.54747236}
   m_Direction: 0
 --- !u!114 &1657002978
 MonoBehaviour:

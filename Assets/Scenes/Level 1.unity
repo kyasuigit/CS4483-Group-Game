@@ -3038,7 +3038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9289d999284735d4e80945afd21f97db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: Caves Guardian
+  nextSceneName: Caves
 --- !u!61 &810084287
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3071,7 +3071,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.1182311, y: 0.2471931}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3082,7 +3082,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.1839134, y: 1.4943857}
   m_EdgeRadius: 0
 --- !u!212 &810084288
 SpriteRenderer:
@@ -3145,7 +3145,7 @@ Transform:
   m_GameObject: {fileID: 810084285}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 86.38, y: 6.73, z: 0}
+  m_LocalPosition: {x: 84.71, y: 6.73, z: 0}
   m_LocalScale: {x: 9.06, y: 3.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -36372,7 +36372,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2987612540863528117, guid: fc6080a0ae27ad840b361612395c936b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987612540863528117, guid: fc6080a0ae27ad840b361612395c936b, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7461876600464339549, guid: fc6080a0ae27ad840b361612395c936b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -36427,6 +36431,7 @@ SceneRoots:
   - {fileID: 341250507}
   - {fileID: 203582558846922839}
   - {fileID: 175508693}
+  - {fileID: 1351126183}
   - {fileID: 7880542285450038339}
   - {fileID: 1864183891}
   - {fileID: 1509900934}
@@ -36441,7 +36446,6 @@ SceneRoots:
   - {fileID: 826567151}
   - {fileID: 367335407}
   - {fileID: 170376683371179486}
-  - {fileID: 1351126183}
   - {fileID: 660547849}
   - {fileID: 331820272}
   - {fileID: 810084289}

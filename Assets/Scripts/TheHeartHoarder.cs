@@ -42,7 +42,8 @@ public class TheHeartHoarder : MonoBehaviour
 
     private void Start()
     {
-        if (Guardian.activeSelf)
+        PlayerChoice.CharacterChoice = "Guardian";
+        if (PlayerChoice.CharacterChoice == "Guardian")
         {
             player = Guardian;
         }
@@ -215,7 +216,7 @@ public class TheHeartHoarder : MonoBehaviour
         audioSource.clip = deathSound;
         audioSource.Play();
         animator.SetBool("killed", true);
-        deathTimer = 3.5f;
+        deathTimer = 3.0f;
         dead = true;
     }
 }

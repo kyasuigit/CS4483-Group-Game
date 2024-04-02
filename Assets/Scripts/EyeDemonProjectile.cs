@@ -30,7 +30,11 @@ public class EyeDemonProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (LayerMask.LayerToName(collision.gameObject.layer) == "Player")
+        if (LayerMask.LayerToName(collision.gameObject.layer) == "Sword")
+        {
+            Destroy(gameObject);
+        }
+        else if (LayerMask.LayerToName(collision.gameObject.layer) == "Player")
         {
             collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(dmg);
             Destroy(gameObject);
@@ -41,10 +45,7 @@ public class EyeDemonProjectile : MonoBehaviour
             Destroy(gameObject);
 
         }
-        else if (LayerMask.LayerToName(collision.gameObject.layer) == "Sword")
-        {
-            Destroy(gameObject);
-        }
+        
 
 
     }

@@ -13,7 +13,6 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(Transform takenFrom, float damageAmount)
     {
-
         health -= damageAmount;
         StartCoroutine(FlashRed());
         if (gameObject.GetComponent<Hellhound>())
