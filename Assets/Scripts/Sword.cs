@@ -28,5 +28,6 @@ public class Sword : MonoBehaviour
             
             collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(gameObject.transform, damage);
         }
+
     }
 }

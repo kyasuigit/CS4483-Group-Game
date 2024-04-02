@@ -7,9 +7,11 @@ public class BossEntryPoint : MonoBehaviour
 {
     public Camera cameraPan;
     public GameObject leftWall;
+    public GameObject bossCanvas;
 
     public Tilemap tilemap;
     public float duration = 1.3f;
+    public GameObject boss;
 
     private bool wallIsAppearing = false;
 
@@ -51,6 +53,8 @@ public class BossEntryPoint : MonoBehaviour
                 cameraPan.GetComponent<CameraFollow>().BossTime();
                 leftWall.SetActive(true);
                 wallIsAppearing = true;
+                boss.GetComponent<TheHeartHoarder>().TriggerBoss();
+                bossCanvas.SetActive(true);
             }
         }
     }
