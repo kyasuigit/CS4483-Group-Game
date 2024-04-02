@@ -45,13 +45,12 @@ public class Player2Script: MonoBehaviour
     private float rageDrainRate = 1f;
     public GameObject shield;
     public LayerMask enemyLayer;
-
-    public GameObject shield1;
-    public GameObject shield2;
+    [SerializeField] private GameObject shieldSummon;
 
     private void Start()
     {
         StartCoroutine(RegenerateHealth());
+        shieldSummon.GetComponent<MoveAwayFromPlayer>().setTarget(transform); 
     }
 
     // Update is called once per frame
@@ -75,16 +74,21 @@ public class Player2Script: MonoBehaviour
 
             if (Input.GetButtonDown("Jump") && isGrounded())
             {
-                animator.SetBool("isJumping", true);
+                animator.SetTrigger("Jump");
+                animator.SetBool("Grounded", false);
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             }
+
             else if (isGrounded())
             {
-                animator.SetBool("isJumping", false);
+                animator.SetBool("Grounded", isGrounded());
             }
+            animator.SetFloat("AirSpeedY", rb.velocity.y);
+
             if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
             {
-                animator.SetBool("isJumping", false);
+                animator.SetTrigger("Jump");
+                animator.SetBool("Grounded", isGrounded());
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
             }
 
@@ -171,7 +175,11 @@ public class Player2Script: MonoBehaviour
 
     private void summonShields()
     {
-       
+        Vector3 shield1Pos = new Vector3(transform.position.x - 2, transform.position.y, transform.position.z);
+        Instantiate(shieldSummon, shield1Pos, Quaternion.identity);
+
+        Vector3 shield2Pos = new Vector3(transform.position.x + 2, transform.position.y, transform.position.z);
+        Instantiate(shieldSummon, shield2Pos, Quaternion.identity);
     }
 
     private void StartRageDrain()
@@ -247,9 +255,8 @@ public class Player2Script: MonoBehaviour
 
     public void PlayerDeath()
     {
-
         rb.bodyType = RigidbodyType2D.Static;
-        animator.SetBool("isDead", true);
+        animator.SetTrigger("Die");
         dead = true;
         deathTimer = 1.5f;
     }

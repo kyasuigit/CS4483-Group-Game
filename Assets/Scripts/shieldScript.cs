@@ -11,6 +11,12 @@ public class MoveAwayFromPlayer : MonoBehaviour
     {
         initialPosition = transform.position;
     }
+
+    public void setTarget(Transform targetTransform)
+    {
+        playerTransform = targetTransform;
+    }
+
     private void Update()
     {
         // Calculate the direction from this object to the player
@@ -43,4 +49,14 @@ public class MoveAwayFromPlayer : MonoBehaviour
             transform.position = initialPosition; // Reset position to the initial position
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (LayerMask.LayerToName(collision.gameObject.layer) == "Enemy")
+        {
+            // Damages enemies, maybe add knockback? 
+            collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(gameObject.transform, 2);
+        }
+    }
+
 }

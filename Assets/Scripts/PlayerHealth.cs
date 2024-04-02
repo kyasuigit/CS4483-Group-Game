@@ -96,7 +96,8 @@ public class PlayerHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            GetComponent<PlayerMovement>().PlayerDeath();
+            //GetComponent<PlayerMovement>().PlayerDeath();
+            GetComponent<Player2Script>().PlayerDeath();
             ShowDefeatMenu();
         }
     }
