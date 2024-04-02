@@ -14,11 +14,19 @@ public class CameraFollow : MonoBehaviour
     private float smoothTime = 0.25f;
     private bool isBoss = false;
 
+    private bool followGuardian = false;
+
     [SerializeField] private Transform target;
-    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject assassin;
+    [SerializeField] private GameObject guardian;
 
 
     private Camera mainCamera;
+
+    public void changeTarget(Transform newTarget)
+    {
+        target = newTarget;
+    }
 
     private void Start()
     {
@@ -26,8 +34,17 @@ public class CameraFollow : MonoBehaviour
     }
     void Update()
     {
-        if (!isBoss) { 
-            offset = player.GetComponent<PlayerMovement>().facingRight() ? new Vector3(1.5f, 0f, -10f) : new Vector3(-1.5f, 0f, -10f);
+        if (!isBoss) {
+            if (!followGuardian)
+            {
+                offset = assassin.GetComponent<PlayerMovement>().facingRight() ? new Vector3(1.5f, 0f, -10f) : new Vector3(-1.5f, 0f, -10f);
+                changeTarget(assassin.transform);
+            }
+            else
+            {
+                offset = guardian.GetComponent<PlayerMovement>().facingRight() ? new Vector3(1.5f, 0f, -10f) : new Vector3(-1.5f, 0f, -10f);
+                changeTarget(guardian.transform);
+            }
             Vector3 targetPosition = target.position + offset;
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
         }
