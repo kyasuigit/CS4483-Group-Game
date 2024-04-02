@@ -31,6 +31,10 @@ public class CameraFollow : MonoBehaviour
     private void Start()
     {
         mainCamera = Camera.main;
+        if (guardian.activeSelf)
+        {
+            followGuardian = true;
+        }
     }
     void Update()
     {
@@ -42,7 +46,7 @@ public class CameraFollow : MonoBehaviour
             }
             else
             {
-                offset = guardian.GetComponent<PlayerMovement>().facingRight() ? new Vector3(1.5f, 0f, -10f) : new Vector3(-1.5f, 0f, -10f);
+                offset = guardian.GetComponent<Player2Script>().facingRight() ? new Vector3(1.5f, 0f, -10f) : new Vector3(-1.5f, 0f, -10f);
                 changeTarget(guardian.transform);
             }
             Vector3 targetPosition = target.position + offset;

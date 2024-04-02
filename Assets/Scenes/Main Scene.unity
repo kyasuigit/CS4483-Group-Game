@@ -31690,7 +31690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3518496439533079471, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4376856830084519212, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
       propertyPath: rageSlider
@@ -33722,6 +33722,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 367335407}
     - target: {fileID: 507610408382309510, guid: b2375f794c2e6604abff929360bc23e4, type: 3}
+      propertyPath: assassin
+      value: 
+      objectReference: {fileID: 1910994971}
+    - target: {fileID: 507610408382309510, guid: b2375f794c2e6604abff929360bc23e4, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 5341220538337063925}
@@ -33875,7 +33879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2987612540863528117, guid: fc6080a0ae27ad840b361612395c936b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7461876600464339549, guid: fc6080a0ae27ad840b361612395c936b, type: 3}
       propertyPath: m_LocalPosition.x

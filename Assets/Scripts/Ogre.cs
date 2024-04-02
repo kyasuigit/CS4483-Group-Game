@@ -18,6 +18,7 @@ public class Ogre : MonoBehaviour
     public Transform pointB;
     public float attackTime;
     public AudioSource audio;
+    public GameObject assassin;
 
     private float attackTimer = 0;
     private bool movingToA = true;
@@ -28,6 +29,10 @@ public class Ogre : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        if (assassin.activeSelf)
+        {
+            playerTransform = assassin.transform;
+        }
     }
 
     public void PlayAudio()
@@ -120,11 +125,8 @@ public class Ogre : MonoBehaviour
         }
     }
 
-
-
     public void Die()
-    {
-       
+    {       
         animator.SetBool("killed", true);
         deathTimer = 0.3f;
         dead = true;
