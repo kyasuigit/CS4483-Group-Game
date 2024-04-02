@@ -254,16 +254,37 @@ public class PlayerMovement : MonoBehaviour
             playerStats.updateRage(playerStats.getRage() - 1);
             canDash = false;
             isDashing = true;
+
+            // Get the sprite renderer component
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+
+            // Save the original alpha value
+            float originalAlpha = spriteRenderer.color.a;
+
+            // Set the sprite's alpha value to 40% transparent
+            Color tempColor = spriteRenderer.color;
+            tempColor.a = 0.4f;
+            spriteRenderer.color = tempColor;
+
             float originalGravity = rb.gravityScale;
             rb.gravityScale = 0f;
             rb.velocity = new Vector2(transform.localScale.x * dashingPower * 2, 0f);
             yield return new WaitForSeconds(dashingTime);
             rb.gravityScale = originalGravity;
             isDashing = false;
+
+            // Restore the original alpha value
+            tempColor.a = originalAlpha;
+            spriteRenderer.color = tempColor;
+
             yield return new WaitForSeconds(dashingCD);
             canDash = true;
+
+            // Re-enable collision with objects tagged as "Enemy" after the dash duration
+            Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Enemy"), false);
         }
     }
+
 
     private IEnumerator SpawnBolt()
     {
