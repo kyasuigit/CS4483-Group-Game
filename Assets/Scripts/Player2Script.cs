@@ -78,6 +78,8 @@ public class Player2Script: MonoBehaviour
                 animator.SetTrigger("Jump");
                 animator.SetBool("Grounded", false);
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+
+                //GameObject.Find("Assassin").SetActive(true);
             }
 
             else if (isGrounded())
@@ -143,6 +145,7 @@ public class Player2Script: MonoBehaviour
             if (Input.GetKeyDown(KeyCode.LeftShift) && playerStats.getRage() > 0 && shieldSummonTimer <= 0)
             {
                 summonShields();
+                shieldSummonTimer = 0.7f;
             }
             Flip();
         }

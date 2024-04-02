@@ -35,6 +35,10 @@ public class EnemyHealth : MonoBehaviour
             {
                 gameObject.GetComponent<CrowScript>().Die();
             }
+            else if (gameObject.GetComponent<Minicrow>())
+            {
+                gameObject.GetComponent<Minicrow>().Die();
+            }
             else if (gameObject.GetComponent<TheHeartHoarder>())
             {
                 gameObject.GetComponent<TheHeartHoarder>().Die();

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CrowScript : MonoBehaviour
 {
     public Transform playerTransform;
+    public GameObject assassin;
 
     public bool flip;
 
@@ -27,6 +28,10 @@ public class CrowScript : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        if (assassin.activeSelf)
+        {
+            playerTransform = assassin.transform;
+        }
     }
 
     public void PlayAudio()

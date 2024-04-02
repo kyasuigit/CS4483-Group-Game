@@ -5,6 +5,7 @@ using UnityEngine;
 public class Minicrow : MonoBehaviour
 {
     private GameObject player;
+
     public float crowSpeed;
     private bool facingLeft = true;
 
@@ -55,17 +56,32 @@ public class Minicrow : MonoBehaviour
             }
         }
     }
+    public void Die()
+    {
+        animator.SetBool("killed", true);
+        dead = true;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (LayerMask.LayerToName(collision.gameObject.layer) == "Player") {
-            animator.SetBool("killed", true);
-            dead = true;
+            Die();
         }
         else if (LayerMask.LayerToName(collision.gameObject.layer) == "Sword" )
         {
-            animator.SetBool("killed", true);
-            dead = true;
+            Die();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (LayerMask.LayerToName(collision.gameObject.layer) == "Player")
+        {
+            Die();
+        }
+        else if (LayerMask.LayerToName(collision.gameObject.layer) == "Sword")
+        {
+            Die();
         }
     }
 }
