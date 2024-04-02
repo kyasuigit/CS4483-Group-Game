@@ -2138,7 +2138,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 696133577}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7190bf17cf6cc5f48a7be8dbfc46f6fd, type: 3}
@@ -49117,6 +49117,8 @@ MonoBehaviour:
   leftWall: {fileID: 181705361}
   tilemap: {fileID: 181705364}
   duration: 2
+  bgMusicAudio: {fileID: 1509900933}
+  bgMusic: {fileID: 8300000, guid: e80bfd531e7d81849bdd9af4bb5dd046, type: 3}
 --- !u!1 &1402608535
 GameObject:
   m_ObjectHideFlags: 0
@@ -49296,7 +49298,7 @@ GameObject:
   - component: {fileID: 1509900934}
   - component: {fileID: 1509900933}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: BG Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49637,6 +49639,7 @@ GameObject:
   - component: {fileID: 1657002974}
   - component: {fileID: 1657002973}
   - component: {fileID: 1657002972}
+  - component: {fileID: 1657002975}
   m_Layer: 0
   m_Name: The Heart Hoarder
   m_TagString: Untagged
@@ -49654,7 +49657,7 @@ Animator:
   m_GameObject: {fileID: 1657002971}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 3878680082654939597, guid: 153c6f8930757844fbd59800882dae6b, type: 3}
+  m_Controller: {fileID: 9100000, guid: c9e95e6dbf93d454ab7088d349272721, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -49706,7 +49709,7 @@ SpriteRenderer:
   m_SortingLayerID: 1643857089
   m_SortingLayer: 1
   m_SortingOrder: 6
-  m_Sprite: {fileID: 722457864560466877, guid: 153c6f8930757844fbd59800882dae6b, type: 3}
+  m_Sprite: {fileID: -8812449211753336619, guid: 8883809d260dac247a82627a86920b6a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -49726,12 +49729,27 @@ Transform:
   m_GameObject: {fileID: 1657002971}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 180.37, y: 6.86, z: 0}
+  m_LocalPosition: {x: 180.37, y: 6.38, z: 0}
   m_LocalScale: {x: 7.4858155, y: 7.4858155, z: 7.4858155}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1657002975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657002971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67737f8691963ec4cb90f028f6898c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1657002972}
+  startTime: 4
+  spawnPoints: []
 --- !u!1 &1661589127
 GameObject:
   m_ObjectHideFlags: 0
@@ -50623,6 +50641,10 @@ PrefabInstance:
     - target: {fileID: 8821207195262154063, guid: 2ee2fecded936864d969dc798112b9f7, type: 3}
       propertyPath: m_Volume
       value: 0.685
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821207195262154063, guid: 2ee2fecded936864d969dc798112b9f7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

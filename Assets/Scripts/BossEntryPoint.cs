@@ -13,10 +13,12 @@ public class BossEntryPoint : MonoBehaviour
 
     private bool wallIsAppearing = false;
 
-    private float currentAlpha = 0f;
     private float timer = 0f;
     private Color startingColor;
     private Color targetColor;
+
+    public AudioSource bgMusicAudio;
+    public AudioClip bgMusic;
 
     private void Start()
     { 
@@ -26,7 +28,7 @@ public class BossEntryPoint : MonoBehaviour
 
     private void Update()
     {
-        if (wallIsAppearing ) { 
+        if (wallIsAppearing) { 
             timer += Time.deltaTime;
 
             float t = Mathf.Clamp01(timer / duration);
@@ -34,6 +36,7 @@ public class BossEntryPoint : MonoBehaviour
 
             if (t >= 1f)
             {
+                
                 Destroy(gameObject);
             }
         }
@@ -42,7 +45,9 @@ public class BossEntryPoint : MonoBehaviour
     {
         if (LayerMask.LayerToName(collision.gameObject.layer) == "Player")
         {
-            if (!wallIsAppearing) { 
+            if (!wallIsAppearing) {
+                bgMusicAudio.clip = bgMusic;
+                bgMusicAudio.Play();
                 cameraPan.GetComponent<CameraFollow>().BossTime();
                 leftWall.SetActive(true);
                 wallIsAppearing = true;
