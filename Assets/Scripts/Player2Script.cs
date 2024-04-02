@@ -145,6 +145,7 @@ public class Player2Script: MonoBehaviour
             if (Input.GetKeyDown(KeyCode.LeftShift) && playerStats.getRage() > 0 && shieldSummonTimer <= 0)
             {
                 summonShields();
+                shieldSummonTimer = 0.7f;
             }
             Flip();
         }

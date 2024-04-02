@@ -1479,7 +1479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &318260638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3188,7 +3188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2987612540863528117, guid: fc6080a0ae27ad840b361612395c936b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2987612540863528117, guid: fc6080a0ae27ad840b361612395c936b, type: 3}
       propertyPath: m_TagString
@@ -51229,7 +51229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1657002972}
   player: {fileID: 708735387}
-  Guardian: {fileID: 0}
+  Guardian: {fileID: 2126491933}
   appearTime: 0.5
   startTime: 3
   attack1Time: 2.5
@@ -52572,7 +52572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3518496439533079471, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3518496439533079471, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
       propertyPath: m_TagString
