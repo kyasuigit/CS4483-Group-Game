@@ -78,6 +78,8 @@ public class Player2Script: MonoBehaviour
                 animator.SetTrigger("Jump");
                 animator.SetBool("Grounded", false);
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+
+                GameObject.Find("Assassin").SetActive(true);
             }
 
             else if (isGrounded())
