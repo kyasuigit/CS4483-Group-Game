@@ -65,7 +65,6 @@ public class Minicrow : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (LayerMask.LayerToName(collision.gameObject.layer) == "Player") {
-            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(3);
             Die();
         }
         else if (LayerMask.LayerToName(collision.gameObject.layer) == "Sword" )

@@ -6,6 +6,7 @@ public class TheHeartHoarder : MonoBehaviour
 {
     public Animator animator;
     public GameObject player;
+    public GameObject Guardian;
     public float appearTime;
     public float startTime;
     public float attack1Time;
@@ -38,6 +39,14 @@ public class TheHeartHoarder : MonoBehaviour
     public GameObject attack3;
 
     // Update is called once per frame
+
+    private void Start()
+    {
+        if (Guardian.activeSelf)
+        {
+            player = Guardian;
+        }
+    }
     void Update()
     {
         if (dead)

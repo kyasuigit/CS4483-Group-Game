@@ -8,11 +8,6 @@ public class MainMenu : MonoBehaviour
     private bool guardianSelected = false;
     private string nextSceneName;
 
-    void Start()
-    {
-        // Make sure this GameObject persists across scene changes
-        DontDestroyOnLoad(gameObject);
-    }
     public IEnumerator selectGuardian()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
