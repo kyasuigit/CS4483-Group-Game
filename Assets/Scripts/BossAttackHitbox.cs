@@ -9,7 +9,7 @@ public class BossAttackHitbox : MonoBehaviour
     {
         if (LayerMask.LayerToName(collision.gameObject.layer) == "Player")
         {
-            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(5);
+            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
     }
 }
