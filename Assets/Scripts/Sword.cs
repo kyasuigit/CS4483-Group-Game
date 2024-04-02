@@ -22,7 +22,10 @@ public class Sword : MonoBehaviour
                 if (randomChance == 0)
                 {
                     // Recover 2 health, 1/5 chance
-                    playerStats.changeHealth(playerStats.getHealth() + 2);
+                    if (playerStats.getHealth() <= 18)
+                    {
+                        playerStats.changeHealth(playerStats.getHealth() + 2);
+                    }
                 }
             }
             
