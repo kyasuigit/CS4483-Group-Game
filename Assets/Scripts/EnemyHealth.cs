@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
     public float enemyDamage;
     public float health;
     public float maxHealth;
+    public bool isBoss;
     [SerializeField] HealthBar healthBar;
 
     public void TakeDamage(Transform takenFrom, float damageAmount)
@@ -36,15 +37,12 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-
     public IEnumerator FlashRed()
     {
         gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         yield return new WaitForSeconds(0.5f);
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
-
-   
 
     public float getEnemyDamage()
     {
