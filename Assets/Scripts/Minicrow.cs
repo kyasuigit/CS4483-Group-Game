@@ -10,6 +10,12 @@ public class Minicrow : MonoBehaviour
 
     private float disappearTime = 4.3f;
     private float timer;
+    private bool dead = false;
+
+    private float deathTimer = 0.3f;
+
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,21 +46,26 @@ public class Minicrow : MonoBehaviour
 
         timer -= Time.deltaTime;
 
-        if (timer < 0)
+        if (timer < 0 || dead)
         {
-            Destroy(gameObject);
+            deathTimer -= Time.deltaTime;
+            if (deathTimer < 0f)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (LayerMask.LayerToName(collision.gameObject.layer) == "Player") {
-            player.GetComponent<PlayerHealth>().TakeDamage(3);
-            Destroy(gameObject);
+            animator.SetBool("killed", true);
+            dead = true;
         }
         else if (LayerMask.LayerToName(collision.gameObject.layer) == "Sword" )
         {
-            Destroy(gameObject);
+            animator.SetBool("killed", true);
+            dead = true;
         }
     }
 }

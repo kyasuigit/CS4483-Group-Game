@@ -17,17 +17,12 @@ public class CrowScript : MonoBehaviour
     public float attackTime;
 
 
-    public AudioSource audio;
+    public AudioSource audioSource;
     private bool facingLeft = true;
 
     private float attackTimer = 0f;
     public GameObject birdPrefab;
     public float birdSpeed;
-
-    private GameObject crow1;
-    private GameObject crow2;
-    private GameObject crow3;
-    private GameObject crow4;
 
     void Start()
     {
@@ -36,7 +31,7 @@ public class CrowScript : MonoBehaviour
 
     public void PlayAudio()
     {
-        audio.Play();
+        GetComponent<AudioSource>().Play();
     }
 
     void Update()
@@ -46,6 +41,7 @@ public class CrowScript : MonoBehaviour
         {
             if (attackTimer <= 0)
             {
+                animator.SetBool("isSummoning", true);
                 attackTimer = attackTime;
                 SpawnCrows();
             }
@@ -53,7 +49,11 @@ public class CrowScript : MonoBehaviour
             {
                 attackTimer -= Time.deltaTime;
             }
-   
+            if (attackTimer < 3f)
+            {
+                animator.SetBool("isSummoning", false);
+            }
+
             if (playerTransform.position.x > transform.position.x && facingLeft)
             {
                 Vector3 newScale = transform.localScale;
@@ -83,11 +83,12 @@ public class CrowScript : MonoBehaviour
 
     public void SpawnCrows()
     {
+        PlayAudio();
 
-        crow1 = Instantiate(birdPrefab, transform.position + new Vector3(0, 3, 0), Quaternion.identity) ;
-        crow2 = Instantiate(birdPrefab, transform.position + new Vector3(0, -3, 0), Quaternion.identity);
-        crow3= Instantiate(birdPrefab, transform.position + new Vector3(3, 0, 0), Quaternion.identity);
-        crow4 = Instantiate(birdPrefab, transform.position + new Vector3(-3, 0, 0), Quaternion.identity);
+        Instantiate(birdPrefab, transform.position + new Vector3(0, 3, 0), Quaternion.identity) ;
+        Instantiate(birdPrefab, transform.position + new Vector3(0, -3, 0), Quaternion.identity);
+        Instantiate(birdPrefab, transform.position + new Vector3(3, 0, 0), Quaternion.identity);
+        Instantiate(birdPrefab, transform.position + new Vector3(-3, 0, 0), Quaternion.identity);
 
     }
 
