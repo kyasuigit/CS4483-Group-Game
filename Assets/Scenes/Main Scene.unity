@@ -38968,6 +38968,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3368037531317376910, guid: d33d6b9ac8ebf06428e51fb2f0ef96d8, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368037531317376910, guid: d33d6b9ac8ebf06428e51fb2f0ef96d8, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368037531317376910, guid: d33d6b9ac8ebf06428e51fb2f0ef96d8, type: 3}
+      propertyPath: m_Color.r
+      value: 0.96354437
+      objectReference: {fileID: 0}
     - target: {fileID: 4051518682006426827, guid: d33d6b9ac8ebf06428e51fb2f0ef96d8, type: 3}
       propertyPath: m_Name
       value: Shield

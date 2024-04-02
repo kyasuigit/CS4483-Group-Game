@@ -17,7 +17,15 @@ public class Sword : MonoBehaviour
             if (!isGuardian)
             {
                 playerStats.updateRage(playerStats.getRage() + 1);
+                int randomChance = Random.Range(0, 5);
+
+                if (randomChance == 0)
+                {
+                    // Recover 2 health, 1/5 chance
+                    playerStats.changeHealth(playerStats.getHealth() + 2);
+                }
             }
+            
             collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(gameObject.transform, damage);
         }
     }

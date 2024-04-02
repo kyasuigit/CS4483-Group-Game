@@ -26,9 +26,9 @@ public class PlayerMovement : MonoBehaviour
     private float boltCD = 1f;
     private float rageAmount;
 
-    private bool boltUnlocked = false;
-    private bool boostUnlocked = false;
-    private bool dashUnlocked = false;
+    private bool boltUnlocked = true;
+    private bool boostUnlocked = true;
+    private bool dashUnlocked = true;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AudioSource attack2Audio;
 
     [SerializeField] private GameObject trailRenderer;
-    [SerializeField] private float dashingPower = 10f;
+    [SerializeField] private float dashingPower = 25f;
 
     public GameObject boltPrefab;
     [SerializeField] private int boltDmg;
@@ -250,15 +250,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (playerStats.getRage() > 0 && dashUnlocked)
         {
+            Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Enemy"), true);
             playerStats.updateRage(playerStats.getRage() - 1);
             canDash = false;
             isDashing = true;
             float originalGravity = rb.gravityScale;
             rb.gravityScale = 0f;
-            rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
-            //trailRenderer.emitting = true;
+            rb.velocity = new Vector2(transform.localScale.x * dashingPower * 2, 0f);
             yield return new WaitForSeconds(dashingTime);
-            //trailRenderer.emitting = false;
             rb.gravityScale = originalGravity;
             isDashing = false;
             yield return new WaitForSeconds(dashingCD);
@@ -268,29 +267,32 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator SpawnBolt()
     {
-
         if (playerStats.getRage() > 0 && boltUnlocked)
         {
             playerStats.updateRage(playerStats.getRage() - 2);
             canBolt = false;
             isBolting = true;
-            GameObject bolt;
-        
-            Vector3 direction = transform.forward;
-            Vector3 spawnPosition = transform.position + (isFacingRight ? transform.right * 5 : -transform.right * 5);
 
-            bolt = Instantiate(boltPrefab, spawnPosition, Quaternion.identity);
-            bolt.transform.forward = direction;
-            yield return new WaitForSeconds(boltTime);
-            Destroy(bolt);
-       
+            Vector3 direction = transform.forward;
+            Vector3 spawnPosition = transform.position;
+            bool facingDirection = isFacingRight;
+
+            for (int i = 0; i < 3; i++)
+            {
+                spawnPosition = spawnPosition + (facingDirection ? transform.right * 2 : -transform.right * 2);
+                GameObject bolt = Instantiate(boltPrefab, spawnPosition, Quaternion.identity);
+                bolt.transform.forward = direction;
+                yield return new WaitForSeconds(0.55f); // Wait for a short duration
+                Destroy(bolt); // Destroy the bolt after a short delay
+                yield return new WaitForSeconds(0.10f); // Wait for another short duration before spawning the next bolt
+            }
+
             isBolting = false;
             yield return new WaitForSeconds(boltCD);
             canBolt = true;
-        
         }
-
     }
+
 
     public void PlayerDeath()
     {
