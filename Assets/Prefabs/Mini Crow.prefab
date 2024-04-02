@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crowSpeed: 4
+  animator: {fileID: 3941620844176319278}
 --- !u!70 &864788484650618635
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
