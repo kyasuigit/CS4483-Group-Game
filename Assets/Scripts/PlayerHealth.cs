@@ -17,6 +17,7 @@ public class PlayerHealth : MonoBehaviour
     private float startTime;
     private bool reduceDamage = false;
     public GameObject defeatMenu;
+    [SerializeField] private bool isGuardian = false;
 
     private void Start()
     {
@@ -85,7 +86,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (reduceDamage)
         {
-            health -= damageAmount / 2;
+            health -= (int)Math.Round(damageAmount / 2.0);
         }
         else
         {
@@ -96,8 +97,14 @@ public class PlayerHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            //GetComponent<PlayerMovement>().PlayerDeath();
-            GetComponent<Player2Script>().PlayerDeath();
+            if (!isGuardian)
+            {
+                GetComponent<PlayerMovement>().PlayerDeath();
+            }
+            else
+            {
+                GetComponent<Player2Script>().PlayerDeath();
+            }
             ShowDefeatMenu();
         }
     }
@@ -106,7 +113,14 @@ public class PlayerHealth : MonoBehaviour
     {
         GetComponent<SpriteRenderer>().color = Color.red;
         yield return new WaitForSeconds(0.5f);
-        GetComponent<SpriteRenderer>().color = Color.white;
+        if (reduceDamage)
+        {
+            GetComponent<SpriteRenderer>().color = Color.yellow;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().color = Color.white;
+        }
     }
 
     private void FlashGold()

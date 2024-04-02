@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 public class Player2Script: MonoBehaviour
 {
     private float horizontal;
-    private float speed = 8f;
+    private float speed = 5.5f;
     private float attack1Timer = 0f;
     private float attack2Timer = 0f;
+    private float shieldSummonTimer = 0.7f;
     private float deathTimer = 0f;
     private bool dead = false;
     
@@ -135,7 +136,11 @@ public class Player2Script: MonoBehaviour
             {
                 toggleDamageReduction();
             }
-            else if (Input.GetKeyDown(KeyCode.LeftShift) && playerStats.getRage() > 0)
+            if (shieldSummonTimer >= 0)
+            {
+                shieldSummonTimer -= Time.deltaTime;
+            }
+            if (Input.GetKeyDown(KeyCode.LeftShift) && playerStats.getRage() > 0 && shieldSummonTimer <= 0)
             {
                 summonShields();
             }
@@ -159,22 +164,24 @@ public class Player2Script: MonoBehaviour
 
     private void toggleDamageReduction()
     {
-        if (playerStats.getDamageReduction() == true)
-        {
-            shield.SetActive(false);
-            playerStats.toggleDamageReduction();
-            StopRageDrain();
-        }
-        else if (playerStats.getRage() > 0)
+
+        if (playerStats.getRage() > 0 && !playerStats.getDamageReduction())
         {
             shield.SetActive(true);
             playerStats.toggleDamageReduction();
             StartRageDrain();
         }
+        else if (playerStats.getDamageReduction() == true)
+        {
+            shield.SetActive(false);
+            playerStats.toggleDamageReduction();
+            StopRageDrain();
+        }
     }
 
     private void summonShields()
     {
+        playerStats.updateRage(playerStats.getRage() - 3);
         Vector3 shield1Pos = new Vector3(transform.position.x - 2, transform.position.y, transform.position.z);
         Instantiate(shieldSummon, shield1Pos, Quaternion.identity);
 
@@ -244,7 +251,7 @@ public class Player2Script: MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(5f); // Wait for 5 seconds before regen
+            yield return new WaitForSeconds(2f); // Wait for 5 seconds before regen
 
             if (playerStats.getHealth() < playerStats.maxHealth)
             {
