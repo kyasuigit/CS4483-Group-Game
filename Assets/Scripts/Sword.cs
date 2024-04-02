@@ -8,7 +8,7 @@ public class Sword : MonoBehaviour
 
     public int damage;
     public PlayerHealth playerStats;
-    private bool isGuardian = false;
+    [SerializeField] private bool isGuardian = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -84,12 +84,16 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
+        if (isGuardian)
+        {
+            updateRage(getRage() + 2);
+        }
         if (reduceDamage)
         {
             health -= (int)Math.Round(damageAmount / 2.0);
         }
         else
-        {
+        {   
             health -= damageAmount;
         }
         invincibilityTimer = invincibilityTime;
