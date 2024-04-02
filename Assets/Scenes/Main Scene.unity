@@ -37891,10 +37891,10 @@ MonoBehaviour:
     m_Bits: 64
   animator: {fileID: 1779069832}
   jumpingPower: 20
-  attack1Time: 0.55
+  attack1Time: 0.7
   attack1Collider: {fileID: 1216497360}
   attack1Audio: {fileID: 1216497364}
-  attack2Time: 0.58
+  attack2Time: 1
   attack2Collider: {fileID: 1609139659}
   attack2Audio: {fileID: 1609139663}
   trailRenderer: {fileID: 923582119}
@@ -38671,6 +38671,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 732424598959228521, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
+      propertyPath: isGuardian
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 732424598959228521, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
       propertyPath: playerStats
       value: 
       objectReference: {fileID: 1779069830}
@@ -38773,6 +38777,10 @@ PrefabInstance:
     - target: {fileID: 4376856830084519212, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
       propertyPath: maxHealth
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376856830084519212, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
+      propertyPath: isGuardian
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4376856830084519212, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
       propertyPath: rageSlider
@@ -38889,6 +38897,10 @@ PrefabInstance:
     - target: {fileID: 8463829053754126686, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
       propertyPath: damage
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8463829053754126686, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
+      propertyPath: isGuardian
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8463829053754126686, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
       propertyPath: playerStats

@@ -182,10 +182,10 @@ public class Player2Script: MonoBehaviour
     private void summonShields()
     {
         playerStats.updateRage(playerStats.getRage() - 3);
-        Vector3 shield1Pos = new Vector3(transform.position.x - 2, transform.position.y, transform.position.z);
+        Vector3 shield1Pos = new Vector3(transform.position.x - 2, transform.position.y + 1.3f, transform.position.z);
         Instantiate(shieldSummon, shield1Pos, Quaternion.identity);
 
-        Vector3 shield2Pos = new Vector3(transform.position.x + 2, transform.position.y, transform.position.z);
+        Vector3 shield2Pos = new Vector3(transform.position.x + 2, transform.position.y + 1.3f, transform.position.z);
         Instantiate(shieldSummon, shield2Pos, Quaternion.identity);
     }
 
