@@ -113,6 +113,14 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public bool isGuardianType()
+    {
+        if (isGuardian)
+        {
+            return true;
+        }
+        return false;
+    }
     private IEnumerator FlashRed()
     {
         GetComponent<SpriteRenderer>().color = Color.red;

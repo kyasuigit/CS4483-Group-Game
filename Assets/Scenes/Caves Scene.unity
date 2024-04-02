@@ -347,7 +347,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 1628283813}
-  player: {fileID: 1779069824}
+  guardianPlayer: {fileID: 0}
+  assassinPlayer: {fileID: 0}
 --- !u!1 &181705361
 GameObject:
   m_ObjectHideFlags: 0
@@ -1928,7 +1929,8 @@ MonoBehaviour:
   zoomSize: 8
   transitionSpeed: 0.7
   target: {fileID: 1779069829}
-  player: {fileID: 1779069824}
+  assassin: {fileID: 0}
+  guardian: {fileID: 0}
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49938,11 +49940,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1756098797}
   m_CullTransparentMesh: 1
---- !u!1 &1779069824 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3518496439533079471, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
-  m_PrefabInstance: {fileID: 7043624481210743611}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1779069829 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3143557492296272078, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
@@ -49953,7 +49950,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4376856830084519212, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
   m_PrefabInstance: {fileID: 7043624481210743611}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1779069824}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b412e40e856ec634781a6ae91a1c0719, type: 3}
@@ -50669,10 +50666,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 617966628876437067, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 670040679165783411, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
       propertyPath: m_Size.y
       value: 0.85925
@@ -50750,15 +50743,7 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4376856830084519212, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4376856830084519212, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
       propertyPath: rageSlider
-      value: 
-      objectReference: {fileID: 432175684}
-    - target: {fileID: 4376856830084519212, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
-      propertyPath: angerBarSlider
       value: 
       objectReference: {fileID: 432175684}
     - target: {fileID: 5549099784772025722, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
@@ -50774,10 +50759,6 @@ PrefabInstance:
       value: 0.58
       objectReference: {fileID: 0}
     - target: {fileID: 5589002825165430336, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
-      propertyPath: playerStats
-      value: 
-      objectReference: {fileID: 1779069830}
-    - target: {fileID: 5589002825165430336, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
       propertyPath: trailRenderer
       value: 
       objectReference: {fileID: 923582119}
@@ -50792,10 +50773,6 @@ PrefabInstance:
     - target: {fileID: 8290633650529693655, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
       propertyPath: m_Time
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8290633650529693655, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
-      propertyPath: m_Autodestruct
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8290633650529693655, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
       propertyPath: m_SortingLayer
@@ -50824,10 +50801,6 @@ PrefabInstance:
     - target: {fileID: 8290633650529693655, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.size
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8290633650529693655, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8290633650529693655, guid: 6eb1bbbcfb669544ab1a0474e9f072fd, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time

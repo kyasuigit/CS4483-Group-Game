@@ -99,8 +99,8 @@ GameObject:
   - component: {fileID: 617966628876437067}
   - component: {fileID: 4376856830084519212}
   m_Layer: 9
-  m_Name: Player
-  m_TagString: Untagged
+  m_Name: Assassin
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba8378b640301c94cb5b0f81011b157d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 0}
+  playerStats: {fileID: 4376856830084519212}
   rb: {fileID: 73281384720724433}
   groundCheck: {fileID: 1465969578491386690}
   groundLayer:
@@ -224,13 +224,13 @@ MonoBehaviour:
     m_Bits: 64
   animator: {fileID: 6225071833918894219}
   jumpingPower: 20
-  attack1Time: 0.7
+  attack1Time: 0.55
   attack1Collider: {fileID: 5944620207595946706}
   attack1Audio: {fileID: 6113760627539915709}
-  attack2Time: 0.7
+  attack2Time: 0.58
   attack2Collider: {fileID: 3980713709687510196}
   attack2Audio: {fileID: 2307275703037845895}
-  trailRenderer: {fileID: 617966628876437067}
+  trailRenderer: {fileID: 5549099784772025722}
   dashingPower: 5
   boltPrefab: {fileID: 7012780055314308682, guid: ce1d3f3bc93b3fe41991c99a2719cced, type: 3}
   boltDmg: 5
@@ -269,8 +269,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.042338055, y: -0.07917969}
-  m_Size: {x: 0.36150107, y: 0.7479348}
+  m_Offset: {x: -0.042338055, y: -0.1348372}
+  m_Size: {x: 0.36150107, y: 0.85925}
   m_Direction: 0
 --- !u!95 &6225071833918894219
 Animator:
@@ -301,7 +301,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3518496439533079471}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 2307275703037845895}
   - component: {fileID: 8017194872614162990}
   - component: {fileID: 8463829053754126686}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Sword Attack 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +470,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4fdebb73d5b8e6b4dbfbd23242932ae9, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.669
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -623,7 +623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 6
-  playerStats: {fileID: 0}
+  playerStats: {fileID: 4376856830084519212}
   isGuardian: 0
 --- !u!1 &5549099784772025722
 GameObject:
@@ -641,7 +641,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1860791094220247729
 Transform:
   m_ObjectHideFlags: 0
@@ -651,7 +651,7 @@ Transform:
   m_GameObject: {fileID: 5549099784772025722}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.155, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -696,10 +696,10 @@ TrailRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Time: 5
+  m_SortingLayerID: 1643857089
+  m_SortingLayer: 1
+  m_SortingOrder: 10
+  m_Time: 0.5
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -709,20 +709,29 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.5231495
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.3888934
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 0, b: 0, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -773,7 +782,7 @@ GameObject:
   - component: {fileID: 6113760627539915709}
   - component: {fileID: 873377741106451520}
   - component: {fileID: 732424598959228521}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Sword Attack 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -807,7 +816,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 846881f74233b7b4db885fc3005c989a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.628
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -961,7 +970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 4
-  playerStats: {fileID: 0}
+  playerStats: {fileID: 4376856830084519212}
   isGuardian: 0
 --- !u!1 &9134632943484155470
 GameObject:

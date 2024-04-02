@@ -5,6 +5,7 @@ using UnityEngine;
 public class Hellhound : MonoBehaviour
 {
     public Transform playerTransform;
+    public GameObject assassin;
 
     public bool flip;
 
@@ -28,6 +29,10 @@ public class Hellhound : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        if (assassin.activeSelf)
+        {
+            playerTransform = assassin.transform;
+        }
     }
 
     void Update()

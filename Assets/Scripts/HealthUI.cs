@@ -6,15 +6,32 @@ using TMPro;
 public class HealthUI : MonoBehaviour
 {
     public TMP_Text textBox;
-    public GameObject player;
+    public GameObject guardianPlayer;
+    public GameObject assassinPlayer;
+    private GameObject currentPlayer;
 
-    // Update is called once per frame
+    void Start()
+    {
+        if (assassinPlayer.activeSelf)
+        {
+            currentPlayer = assassinPlayer;
+        }
+        else
+        {
+            currentPlayer = guardianPlayer;
+        }
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
         }
-        textBox.text = player.GetComponent<PlayerHealth>().getHealth().ToString();
+
+        if (currentPlayer != null)
+        {
+            textBox.text = currentPlayer.GetComponent<PlayerHealth>().getHealth().ToString();
+        }
     }
 }
