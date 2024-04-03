@@ -29,7 +29,7 @@ public class Hellhound : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        if (PlayerChoice.CharacterChoice == "Assassin")
+        if (PlayerPrefs.GetString("character") == "Assassin")
         {
             playerTransform = assassin.transform;
         }

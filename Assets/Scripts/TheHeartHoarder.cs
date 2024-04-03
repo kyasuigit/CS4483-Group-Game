@@ -37,13 +37,13 @@ public class TheHeartHoarder : MonoBehaviour
     public GameObject attack1;
     public GameObject attack2;
     public GameObject attack3;
+    public GameObject endgamePanel;
 
     // Update is called once per frame
 
     private void Start()
     {
-        PlayerChoice.CharacterChoice = "Guardian";
-        if (PlayerChoice.CharacterChoice == "Guardian")
+        if (PlayerPrefs.GetString("character") == "Guardian")
         {
             player = Guardian;
         }
@@ -55,6 +55,7 @@ public class TheHeartHoarder : MonoBehaviour
             deathTimer -= Time.deltaTime;
             if (deathTimer < 0f)
             {
+                endgamePanel.GetComponent<Endgame>().StartEndGame();
                 Destroy(gameObject);
             }
         }

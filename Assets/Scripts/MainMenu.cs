@@ -10,13 +10,15 @@ public class MainMenu : MonoBehaviour
 
     public void selectGuardian()
     {
-        PlayerChoice.CharacterChoice = "Guardian";
+        PlayerPrefs.SetString("character", "Guardian");
+        PlayerPrefs.Save();
         SceneManager.LoadScene(1);
     }
 
     public void selectAssassin()
     {
-        PlayerChoice.CharacterChoice = "Assassin";
+        PlayerPrefs.SetString("character", "Assassin");
+        PlayerPrefs.Save();
         SceneManager.LoadScene(1);
     }
 

@@ -32,7 +32,7 @@ public class CameraFollow : MonoBehaviour
     {
         mainCamera = Camera.main;
 
-        if (PlayerChoice.CharacterChoice == "Guardian")
+        if (PlayerPrefs.GetString("character") == "Guardian")
         {
             guardian.SetActive(true);
             followGuardian = true;
@@ -48,7 +48,7 @@ public class CameraFollow : MonoBehaviour
         if (!isBoss) {
             if (!followGuardian)
             {
-                offset = assassin.GetComponent<PlayerMovement>().facingRight() ? new Vector3(1.5f, 2.5f, -5f) : new Vector3(-1.5f, 2.5f, -5f);
+                offset = assassin.GetComponent<PlayerMovement>().facingRight() ? new Vector3(1.5f, 0.5f, -5f) : new Vector3(-1.5f, 0.5f, -5f);
                 changeTarget(assassin.transform);
             }
             else

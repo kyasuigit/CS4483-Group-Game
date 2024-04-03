@@ -29,7 +29,7 @@ public class Ogre : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        if (PlayerChoice.CharacterChoice == "Assassin")
+        if (PlayerPrefs.GetString("character") == "Assassin")
         {
             playerTransform = assassin.transform;
         }
