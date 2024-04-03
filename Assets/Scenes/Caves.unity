@@ -3850,7 +3850,7 @@ GameObject:
   - component: {fileID: 697652603}
   - component: {fileID: 697652602}
   m_Layer: 5
-  m_Name: LevelEndScreen
+  m_Name: LevelStartEndScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52936,7 +52936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac40c084b737a5748a2169c4f5e015ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelEndScreen: {fileID: 0}
+  levelEndScreen: {fileID: 697652600}
 --- !u!4 &1348710904
 Transform:
   m_ObjectHideFlags: 0
