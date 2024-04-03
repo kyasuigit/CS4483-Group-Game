@@ -24,11 +24,6 @@ public class HealthUI : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-
         if (currentPlayer != null)
         {
             textBox.text = currentPlayer.GetComponent<PlayerHealth>().getHealth().ToString();

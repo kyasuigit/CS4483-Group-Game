@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenuScripts : MonoBehaviour
 {
 
-    public static bool Paused = false;
+    public bool Paused = false;
     public GameObject PausedMenuCanvas;
 
     // Start is called before the first frame update
@@ -15,8 +15,8 @@ public class PauseMenuScripts : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    // Update is called once per frame
-    void Update()
+   // Update is called once per frame
+   void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {

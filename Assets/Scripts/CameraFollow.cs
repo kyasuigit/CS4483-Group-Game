@@ -53,7 +53,7 @@ public class CameraFollow : MonoBehaviour
             }
             else
             {
-                offset = guardian.GetComponent<Player2Script>().facingRight() ? new Vector3(1.5f, 0.5f, -5f) : new Vector3(-1.5f, 0.5f, -5f);
+                offset = guardian.GetComponent<Player2Script>().facingRight() ? new Vector3(1.5f, 2.5f, -5f) : new Vector3(-1.5f, 2.5f, -5f);
                 changeTarget(guardian.transform);
             }
             Vector3 targetPosition = target.position + offset;
