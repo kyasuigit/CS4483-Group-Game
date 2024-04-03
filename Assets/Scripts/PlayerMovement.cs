@@ -155,8 +155,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                Destroy(gameObject);
-                SceneManager.LoadScene(0);
+                GetComponent<PlayerHealth>().ShowDefeatMenu();
             }
         }
 

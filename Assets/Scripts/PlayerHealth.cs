@@ -109,7 +109,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 GetComponent<Player2Script>().PlayerDeath();
             }
-            ShowDefeatMenu();
+            
         }
     }
 
@@ -162,7 +162,7 @@ public class PlayerHealth : MonoBehaviour
         return rageSlider.value;
     }
 
-    void ShowDefeatMenu()
+    public void ShowDefeatMenu()
     {
         defeatMenu.SetActive(true);
         Time.timeScale = 0f;
